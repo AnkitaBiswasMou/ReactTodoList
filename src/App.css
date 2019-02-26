@@ -18,7 +18,9 @@
   font-size: calc(10px + 2vmin);
   color: rgb(53, 15, 15);
 }
-
+.text-decoration{
+  text-decoration: line-through;
+}
 .App-link {
   color: #61dafb;
 }

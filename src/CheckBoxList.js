@@ -12,7 +12,7 @@ class CheckBoxList extends Component {
 
                 {this.props.items.map((item) =>
                     <div key={item.id}>
-                        <label>
+                        <label className={item.checked ? 'text-decoration':''}>
                             <input id={item.id}
                                 type="checkbox"
                                 onChange={this.handleChange}
