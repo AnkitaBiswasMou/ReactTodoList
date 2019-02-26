@@ -8,7 +8,7 @@ class CheckBoxList extends Component {
     render() {
         return (
             <div>
-                Total Checked Value : {this.state.totale}
+                Total Checked Box : {this.state.totale}
 
                 {this.props.items.map((item) =>
                     <div key={item.id}>
@@ -26,7 +26,6 @@ class CheckBoxList extends Component {
     }
 
     handleChange(event) {
-        //const target = event.target;
         const targetId = event.target.id;
         this.props.items[targetId].checked = event.target.checked;
         var totalValue = 0;

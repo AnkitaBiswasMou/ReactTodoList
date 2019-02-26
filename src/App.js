@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <CreateCheckBox onClick={this.addRow} handlerFromParant={this.handleInput}></CreateCheckBox>
+        <CreateCheckBox handlerFromParant={this.handleInput}></CreateCheckBox>
         <CheckBoxList items={this.state.wishlist} count={this.state.count}></CheckBoxList>
       </div>
     );
@@ -25,9 +25,6 @@ class App extends Component {
     var listItem = { id: this.state.count, name: data, checked: false };
     var allItem = this.state.wishlist.concat([listItem]);
     this.setState({ wishlist: allItem })
-  }
-  addRow(event) {
-    this.setState({ value: event.target.value });
   }
 }
 
