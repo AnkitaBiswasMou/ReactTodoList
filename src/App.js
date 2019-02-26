@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CreateCheckBox from './CreateCheckBox';
+import CheckBoxList from './CheckBoxList';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleInput = this.handleInput.bind(this);
+    this.state = {
+      wishlist: [], count: 0, currentInput: ''
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <CreateCheckBox onClick={this.addRow} handlerFromParant={this.handleInput}></CreateCheckBox>
+        <CheckBoxList items={this.state.wishlist} count={this.state.count}></CheckBoxList>
       </div>
     );
+  }
+  handleInput(data) {
+    this.setState({ count: this.state.count + 1 });
+    this.setState({ currentInput: data })
+    var listItem = { id: this.state.count, name: data, checked: false };
+    var allItem = this.state.wishlist.concat([listItem]);
+    this.setState({ wishlist: allItem })
+  }
+  addRow(event) {
+    this.setState({ value: event.target.value });
   }
 }
 
